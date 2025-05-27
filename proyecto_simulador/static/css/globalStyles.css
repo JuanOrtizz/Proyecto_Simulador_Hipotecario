@@ -1,0 +1,182 @@
+/*Declare variables con los colores que voy a usar en la pagina*/
+:root{
+    --colorVerde: #526522;
+    --colorGrisClaro: #76767b;
+    --colorGrisOscuro: #343437;
+    --colorBlanco: #FFFFFF;
+    --colorNegro: #000000;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*Pongo que trabaja en columnas, los distintos elementos que vaya a agregar y la fuente Raleway para los textos y demas*/
+body{
+    display:flex;
+    flex-direction: column;
+    font-family:'Raleway', sans-serif;
+}
+
+/*Diseño del header*/
+header{
+    height: 15vh;
+    width: 100%;
+    margin: 0;
+    padding: 3px 50px;
+    box-sizing: border-box;
+    background-color: var(--colorVerde);
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+#contenedor_logo{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 60px;
+    width: 60px;
+}
+
+#contenedor_logo img{
+    height: 50px;
+    width: 50px;
+}
+
+#contenedor_interno_nav{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+#contenedor_interno_nav ul{
+    display:flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 0.8rem;
+    gap: 30px;
+}
+
+#contenedor_interno_nav li{
+    display:flex;
+    align-items: center;
+    padding: 5px;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+#contenedor_interno_nav a{
+    text-decoration: none;
+    color:var(--colorBlanco);
+}
+
+#boton_simula_credito{
+    border: 1px solid var(--colorBlanco);
+}
+
+/*Diseño Main, esto es para que el footer siempre este debajo*/
+main {
+  flex: 1;
+}
+
+
+/*Diseño footer*/
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding: 10px 50px;
+    box-sizing: border-box;
+    background-color: var(--colorVerde);
+}
+
+footer div{
+    height: 10vh;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer ul{
+    display:flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 1rem;
+    gap: 60px;
+    color:var(--colorBlanco);
+    font-weight: 500;
+}
+
+/*Medias Queries para diseños responsive*/
+
+/*Para pantallas de 1024 hasta 768 pixeles de ancho*/
+@media (max-width: 1024px){
+    /*Diseño footer*/
+    footer div{
+        height: 60px;
+    }
+
+    footer ul{
+        font-size: 0.8rem;
+    }
+}
+
+/*Para pantallas de 768 hasta 480 pixeles de ancho*/
+@media (max-width: 768px){
+    header{
+        padding: 3px 30px;
+    }
+
+    /*Diseño footer*/
+    footer div{
+        height: 40px;
+    }
+
+    footer ul{
+        gap:10px;
+        font-size: 0.6rem;
+    }
+}
+
+/*Para pantallas de 480 o menos pixeles de ancho*/
+@media (max-width: 480px){
+    #contenedor_logo img{
+        height: 45px;
+        width: 45px;
+    }
+
+
+    #contenedor_interno_nav ul{
+        font-size: 0.7rem;
+        gap: 10px;
+    }
+
+
+    footer div{
+        height: 30px;
+    }
+
+    footer ul{
+        gap:7px;
+        font-size: 0.5rem;
+    }
+}
