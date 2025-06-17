@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Modificar Solicitud | Finanzas Raiz {% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'simulador/css/stylesModificarSolicitud.css' %}">
+{% endblock %}
+{% block content %}
+    <section id="section_contenedor_volver">
+        <div id="contenedor_volver">
+            <a id="enlace_volver" href="{% url 'solicitudes' %}">Volver</a>
+        </div>
+    </section>
+    <section class="section_contenedor_modificar_solicitud">
+        <div class="contenedor_modificar_solicitud">
+            <h2>Modificar Solicitud</h2>
+            <form method="POST" id="form_modificar_solicitud" novalidate>
+                {% csrf_token %}
+                {% for input in form %}
+                    {% if input.name == "email" or input.name == "celular" %}
+                    <div class="contenedor_input">
+                        {{ input.label_tag }}
+                        {{ input }}
+                        <span class="error_texto" id="error-{{ input.id_for_label }}"></span>
+                    </div>
+                    {% else %}
+                        <div class="contenedor_input contenedor_deshabilitado">
+                            {{ input.label_tag }}
+                            {{ input }}
+                            <span class="error_texto" id="error-{{ input.id_for_label }}"></span>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <button type="submit">Modificar</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}
+{% block extra_js %}
+    <script type="module" src="{% static 'simulador/js/modificarSolicitud.js' %}"></script>
+{% endblock %}
