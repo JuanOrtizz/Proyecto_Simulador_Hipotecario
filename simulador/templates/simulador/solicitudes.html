@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Panel Solicitudes | Finanzas Raiz {% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'simulador/css/stylesPaneles.css' %}">
+{% endblock %}
+{% block content %}
+    <section class="section_contenedor_volver">
+        <div class="contenedor_volver">
+            <a class="enlace_volver" href="{% url 'dashboard' %}">Volver</a>
+        </div>
+    </section>
+    <section class="section_contenedor_panel">
+        <div class="contenedor_panel">
+            <h2>Panel de Solicitudes</h2>
+            <div class="contenedor_tabla">
+                <table>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Edad</th>
+                        <th>Email</th>
+                        <th>Celular</th>
+                        <th>Valor de la propiedad</th>
+                        <th>Ahorros disponibles</th>
+                        <th>Plazo</th>
+                        <th>Monto Credito</th>
+                        <th>Monto Cuota</th>
+                        <th>Acciones</th>
+                    </tr>
+                    {% for solicitud in solicitudes %}
+                    <tr id="solicitud-{{ solicitud.id }}">
+                        <td><div class="contenido_td">{{ solicitud.nombreCompleto }}</div></td>
+                        <td><div class="contenido_td">{{ solicitud.edad }}</div></td>
+                        <td><div class="contenido_td">{{ solicitud.email }}</div></td>
+                        <td><div class="contenido_td">{{ solicitud.celular }}</div></td>
+                        <td><div class="contenido_td">${{ solicitud.valorPropiedad }}</div></td>
+                        <td><div class="contenido_td">${{ solicitud.ahorrosDisponibles }}</div></td>
+                        <td><div class="contenido_td">{{ solicitud.plazoFinanciamiento }} año/s</div></td>
+                        <td><div class="contenido_td">${{ solicitud.montoCredito|floatformat:2 }}</div></td>
+                        <td><div class="contenido_td">${{ solicitud.montoCuota|floatformat:2 }}</div></td>
+                        <td>
+                            <div class="contenedor_acciones">
+                                <a class="boton_modificar" href="{% url 'modificar_solicitud' solicitud.id %}">
+                                    Modificar
+                                </a>
+                                <button class="boton_eliminar" data-id ="{{ solicitud.id }}">
+                                    Eliminar
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block extra_js %}
+    <script type = module src="{% static 'simulador/js/eliminarSolicitud.js' %}"></script>
+{% endblock %}
