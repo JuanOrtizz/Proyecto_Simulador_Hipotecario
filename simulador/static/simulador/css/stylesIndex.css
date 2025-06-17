@@ -1,0 +1,268 @@
+/*Contenedor parallax para poner imagen de fondo*/
+.parallax {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    min-height: 50vh;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
+    url('/static/simulador/img/imagen_hero.webp');
+    background-blend-mode: darken;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*Contenedor interno del parallax con los textos del hero*/
+#contenedor_texto_hero{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    'h1'
+    'p';
+    justify-content: flex-start;
+    align-items: center;
+    width: 75%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/*diseño para el titulo del hero*/
+#contenedor_texto_hero h1{
+    grid-area: h1;
+    margin: 0;
+    font-size: 5rem;
+    font-weight: 600;
+    color:var(--colorBlanco);
+}
+
+/*Diseño para el parrafo del hero*/
+#contenedor_texto_hero p{
+    grid-area: p;
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color:var(--colorBlanco);
+}
+
+/*diseño para el section que tiene el contenido de las cards*/
+.section_contenedor{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction:column;
+    gap: 80px;
+    height:auto;
+    width: 100%;
+    padding:30px;
+    margin: 50px 0;
+    box-sizing:border-box;
+    overflow-x: hidden;
+}
+
+/*diseño para cada contenedor (card)*/
+#contenedor_simulador,
+#contenedor_nosotros{
+    display:flex;
+    justify-content:center;
+    align-items:start;
+    flex-direction:column;
+    height:auto;
+    width: 60%;
+    padding: 30px;
+    box-sizing:border-box;
+    border-radius: 5px;
+    background-color: var(--colorVerdeClaro);
+    box-shadow: 0 1px 5px 1px var(--colorNegro);
+}
+
+/*Alineaciones de cada contenedor independiente*/
+#contenedor_nosotros{
+    align-self:end;
+}
+
+#contenedor_simulador{
+    align-self: start;
+}
+
+/*Diseño para la animacion de entrada de los contenedores*/
+.contenedor_izquierda, .contenedor_derecha {
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+
+/*Diseño para el contenedor que entra de la izquierda*/
+.contenedor_izquierda {
+    transform: translateX(-100px);
+}
+
+/*Diseño para el contenedor que entra de la derecha*/
+.contenedor_derecha {
+    transform: translateX(100px);
+}
+
+/* clase y su diseño para que aparezca el contenedor*/
+.aparecer{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/*diseño para los h2 dentro de la card (Simula, Nosotros)*/
+#contenedor_simulador h2,
+#contenedor_nosotros h2{
+    font-size: 1.7rem;
+    color:var(--colorNegro);
+    margin:0;
+}
+
+/*diseño para los parrafos dentro de la card (Simula, Nosotros)*/
+#contenedor_simulador p,
+#contenedor_nosotros p{
+    font-size: 0.9rem;
+    color:var(--colorNegro);
+}
+
+/*Diseño para cada <a>(enlace) para que sea igual que un boton*/
+.section_contenedor a{
+    align-self: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing:border-box;
+    border-radius:5px;
+    border: 2px solid  var(--colorVerdeOscuro);
+    color: var(--colorVerdeOscuro);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align:center;
+    background-color: var(--colorBlanco);
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/*diseño para cada <a> (enlace) hover*/
+.section_contenedor a:hover{
+    background-color: var(--colorVerdeOscuro);
+    color: var(--colorBlanco);
+}
+
+/*Mediaqueries*/
+@media (max-width: 1024px) {
+    /*Contenedor interno del parallax con los textos del hero*/
+    #contenedor_texto_hero{
+        width: 75%;
+        padding: 20px;
+    }
+
+    /*diseño para el titulo del hero*/
+    #contenedor_texto_hero h1{
+        font-size: 3rem;
+    }
+
+    /*Diseño para el parrafo del hero*/
+    #contenedor_texto_hero p{
+        font-size: 1rem;
+    }
+
+    /*diseño para cada contenedor (card)*/
+    #contenedor_simulador,
+    #contenedor_nosotros{
+        width: 70%;
+    }
+
+    /*diseño para los h2 dentro de la card (Simula, Nosotros)*/
+    #contenedor_simulador h2,
+    #contenedor_nosotros h2{
+        font-size: 1.4rem;
+    }
+
+    /*diseño para los parrafos dentro de la card (Simula, Nosotros)*/
+    #contenedor_simulador p,
+    #contenedor_nosotros p{
+        font-size: 0.9rem;
+    }
+
+    /*Diseño para cada <a>(enlace) para que sea igual que un boton*/
+    .section_contenedor a{
+        font-size: 0.8rem;
+    }
+
+}
+
+@media (max-width: 768px){
+    /*Contenedor interno del parallax con los textos del hero*/
+    #contenedor_texto_hero{
+        width: 75%;
+        padding: 20px;
+    }
+
+    /*diseño para el titulo del hero*/
+    #contenedor_texto_hero h1{
+        font-size: 2rem;
+    }
+
+    /*Diseño para el parrafo del hero*/
+    #contenedor_texto_hero p{
+        font-size: 0.8rem;
+    }
+
+    /*diseño para cada contenedor (card)*/
+    #contenedor_simulador,
+    #contenedor_nosotros{
+        width: 100%;
+    }
+
+    /*diseño para los h2 dentro de la card (Simula, Nosotros)*/
+    #contenedor_simulador h2,
+    #contenedor_nosotros h2{
+        font-size: 1.2rem;
+    }
+
+    /*diseño para los parrafos dentro de la card (Simula, Nosotros)*/
+    #contenedor_simulador p,
+    #contenedor_nosotros p{
+        font-size: 0.7rem;
+    }
+
+    /*Diseño para cada <a>(enlace) para que sea igual que un boton*/
+    .section_contenedor a{
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px){
+    /*Contenedor interno del parallax con los textos del hero*/
+    #contenedor_texto_hero{
+        padding: 15px;
+    }
+
+    /*diseño para el titulo del hero*/
+    #contenedor_texto_hero h1{
+        font-size: 1.8rem;
+    }
+
+    /*Diseño para el parrafo del hero*/
+    #contenedor_texto_hero p{
+        font-size: 0.8rem;
+    }
+
+    /*diseño para los h2 dentro de la card (Simula, Nosotros)*/
+    #contenedor_simulador h2,
+    #contenedor_nosotros h2{
+        font-size: 1rem;
+    }
+
+    /*diseño para los parrafos dentro de la card (Simula, Nosotros)*/
+    #contenedor_simulador p,
+    #contenedor_nosotros p{
+        font-size: 0.8rem;
+    }
+
+    /*Diseño para cada <a>(enlace) para que sea igual que un boton*/
+    .section_contenedor a{
+        font-size: 0.8rem;
+    }
+}

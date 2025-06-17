@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Finanzas Raiz {% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'simulador/css/stylesIndex.css' %}">
+{% endblock %}
+{% block content %}
+    <section class="parallax">
+        <div id="contenedor_texto_hero">
+            <h1>Simulador de Crédito Hipotecario</h1>
+            <p>Tu casa a un click</p>
+        </div>
+    </section>
+    <section class="section_contenedor" >
+        <div id="contenedor_simulador" class="contenedor_izquierda">
+            <h2>Cumplí el sueño de tu casa propia con nuestro credito hipotecario</h2>
+            <p>Recorda leer bien los requisitos y la informacion importante a tener en cuenta</p>
+            <a href="/simulador/">Simular Credito</a>
+        </div>
+        <div id="contenedor_nosotros"  class="contenedor_derecha">
+            <h2>Nosotros</h2>
+            <p>
+                En Finanzas Raíz nos especializamos en el desarrollo de herramientas digitales que facilitan la toma de decisiones financieras informadas. Somos una empresa enfocada en soluciones tecnológicas para el sector inmobiliario y crediticio, con el compromiso de promover la educación financiera y la transparencia.
+                Nuestro Simulador de Crédito Hipotecario ha sido creado para que cualquier persona pueda estimar su capacidad de financiamiento de manera rápida, clara y segura. Entendemos que acceder a un crédito hipotecario es una de las decisiones más importantes en la vida de una persona, por eso ofrecemos una plataforma sencilla, confiable y orientada al usuario.
+            </p>
+            <a href="/contacto/">Contactanos</a>
+        </div>
+    </section>
+{% endblock %}
+{% block extra_js %}
+    <script src="{% static 'simulador/js/index.js' %}"></script>
+{% endblock %}
