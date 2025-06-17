@@ -1,0 +1,442 @@
+/*Diseño del contenedor general del formulario y cards*/
+#contenedor_form_cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/*diseño del contenedor del formulario*/
+#contenedor_form{
+    height: 100%;
+    width: 70%;
+    margin: 30px;
+    text-align: center;
+}
+
+/*diseño del titulo del contenedor del formulario*/
+#contenedor_form h2{
+    color: var(--colorNegro);
+    margin:0;
+}
+
+/*diseño del formulario*/
+#contenedor_form form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    gap: 5px;
+    padding:15px;
+    box-sizing: border-box;
+}
+
+/*diseño para los errores en el span debajo del input*/
+.error_texto{
+    color: var(--colorRojo);
+    text-align: start;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/*diseño para los inputs del formulario*/
+.contenedor_input input,
+.contenedor_input select{
+    width: 100%;
+}
+
+/*diseño de los input que ocupan todo el espacio*/
+.input_grande{
+    grid-column: span 2;
+}
+
+/*diseño de inputs para que ocupen la mitad del espacio*/
+.input_pequeño{
+    grid-column: span 1;
+}
+
+/*diseño de input y select*/
+#contenedor_form input,
+#contenedor_form select{
+    height: 40px;
+    padding: 0 10px;
+    border: 2px solid var(--colorGrisClaro);
+    box-sizing: border-box;
+    font-size: 0.8rem;
+}
+
+/*diseño de input y select en FOCUS*/
+#contenedor_form input:focus,
+#contenedor_form select:focus{
+    border: 2px solid var(--colorNegro);
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/*diseño del boton del formulario*/
+#contenedor_form button {
+    max-height:40px;
+    grid-column: span 2;
+    border: none;
+    background-color: var(--colorGrisOscuro);
+    color: var(--colorBlanco);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/*diseño del boton del formulario hover*/
+#contenedor_form button:hover{
+    background-color: var(--colorNegro);
+}
+
+/*diseño para el placeholder*/
+#contenedor_form input::placeholder{
+    color: var(--colorGrisClaro);
+}
+
+/*diseño para el select*/
+#contenedor_form select:invalid {
+  color: var(--colorGrisClaro); /* gris claro para "Tipo de empleo" */
+}
+
+/*diseño para agregarle un color al fondo del input cuando tenga texto*/
+#contenedor_form input:not(:placeholder-shown){
+  background-color: #E8F0FE;
+}
+
+/*diseño para agregarle un color al fondo del select cuando tenga una opcion valida*/
+.select_seleccionado{
+    background-color: #E8F0FE;
+}
+
+/*diseño para sacarle el color al fondo del select cuando no tenga una opcion valida*/
+.select_no_seleccionado{
+    background-color: var(--colorBlanco);
+}
+
+/*Estilo para errores en los input*/
+.input_error{
+    border: 2px solid var(--colorRojo) !important;
+}
+
+/*estilos para el span de cotizacion del dolar*/
+.info_dolar{
+    display:block;
+    color: var(--colorGrisOscuro);
+    text-align: start;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/*estilos para eliminar las flechas de los input de numeros en navegadores*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*diseño para el contenedor de avisos/cards*/
+#contenedor_avisos{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    'requisitos'
+    'importante';
+    gap: 10px;
+    height: 100%;
+    width: 30%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/*diseños de las cards de avisos*/
+#card_requisitos,
+#card_importante{
+    flex-grow: 1;
+    padding:15px;
+    box-sizing:border-box;
+    border: 2px solid var(--colorGrisOscuro);
+}
+
+/*diseños de las cards de avisos*/
+#card_requisitos p,
+#card_importante p{
+    font-size: 0.8rem;
+    margin:0;
+    padding:5px 0;
+    box-sizing:border-box;
+}
+
+/*diseños de las lineas separadoras/hr de las cards*/
+#card_requisitos hr, #card_importante hr{
+    height: 1px;
+    border: none;
+    color: var(--colorGrisOscuro);
+    background-color: var(--colorGrisOscuro);
+    margin: 5px 0;
+}
+
+/*diseño de los titulos de las cards*/
+#card_requisitos h3, #card_importante h3{
+    font-size: 1.5rem;
+    margin:0;
+}
+
+/*Diseño informe del simulador*/
+#contenedor_informe{
+    height:auto;
+    padding: 50px;
+    box-sizing:border-box;
+    background-color:var(--colorGrisOscuro);
+    color: var(--colorBlanco);
+}
+
+/*diseño del contenedor de los datos de la simulaicon*/
+#contenedor_datos_informe{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:2px;
+    height: 30vh;
+}
+
+/*diseño de cada contenedor interno de los datos de la simulacion*/
+#contenedor_datos_informe div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 80%;
+    width: 25%;
+    border-right: 3px solid var(--colorBlanco);
+}
+
+/*Diseño para evitar que el ultimo div ponga el borde a su derecha*/
+#contenedor_datos_informe > div:last-child {
+    border-right: none;
+}
+
+/*diseño para los parrafos de los datos*/
+#contenedor_datos_informe p{
+    margin: 3px;
+    font-size:0.8rem;
+    text-align:center;
+}
+
+.datos_informe{
+    font-size:1.5rem !important;
+}
+
+/*diseño texto adicional del informe(*) */
+#info_adicional_informe{
+    font-size:0.8rem;
+}
+
+/*diseño pantalla de carga*/
+#pantalla_carga {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* fondo gris oscuro*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    z-index: 9999;
+    display: none; /* oculto por defecto */
+}
+
+/*parrafo de la pantalla de carga*/
+#pantalla_carga p{
+    color:var(--colorBlanco);
+    font-size: 1rem;
+    font-weight:600;
+}
+
+/*Diseño del componente de Bootstrap para no cargar todo Bootstrap*/
+.spinner-border {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: text-bottom;
+    border: 0.25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-border 0.75s linear infinite;
+}
+
+@keyframes spinner-border {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner-border.text-light {
+  color: white;
+}
+
+/*Mediaqueries*/
+@media (max-width: 1024px) {
+    #contenedor_form_cards{
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    /*diseño del contenedor del formulario*/
+    #contenedor_form{
+        height: 100%;
+        width: 100%;
+    }
+
+    /*diseño para el contenedor de avisos/cards*/
+    #contenedor_avisos{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        'requisitos'
+        'importante';
+        width: 100%;
+    }
+
+    /*diseños de las cards de avisos*/
+    #card_requisitos, #card_importante{
+        flex-grow: 1;
+        height: 100%;
+        padding: 40px 10px;
+        box-sizing:border-box;
+        font-size: 0.7rem;
+    }
+
+    /*diseño de los titulos de las cards*/
+    #card_requisitos h3,
+    #card_importante h3{
+        font-size: 1.2rem;
+    }
+
+    /*Diseño informe del simulador*/
+    #contenedor_informe{
+        padding: 20px;
+    }
+
+    #contenedor_informe h2{
+        padding: 0;
+        font-size: 1.2rem;
+    }
+
+    #contenedor_datos_informe{
+        height: 25vh;
+        padding: 10px;
+    }
+
+    /*diseño para los parrafos de los datos*/
+    #contenedor_datos_informe p{
+        font-size:0.7rem;
+    }
+
+    .datos_informe{
+        font-size: 0.9rem !important;
+    }
+
+    /*diseño texto adicional del informe(*) */
+    #info_adicional_informe{
+        font-size:0.7rem;
+    }
+}
+
+@media (max-width: 768px){
+    #contenedor_avisos{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+    }
+
+    /*diseños de las cards de avisos*/
+    #card_requisitos, #card_importante{
+        font-size: 0.6rem;
+        padding: 20px 10px;
+    }
+
+    /*diseño de los titulos de las cards*/
+    #card_requisitos h3, #card_importante h3{
+        font-size: 0.9rem;
+    }
+
+    #contenedor_informe h2{
+        font-size: 0.8rem;
+    }
+
+    /*diseño para los parrafos de los datos*/
+    #contenedor_datos_informe p{
+        font-size:0.5rem;
+    }
+
+    .datos_informe{
+        font-size: 0.7rem !important;
+    }
+
+    /*diseño texto adicional del informe(*) */
+    #info_adicional_informe{
+        font-size:0.5rem;
+    }
+}
+
+@media (max-width: 480px){
+    #contenedor_form h2{
+        font-size:1.2rem;
+    }
+
+    #contenedor_form form{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(11, 1fr);
+        padding: 15px 0;
+        gap: 5px;
+    }
+
+    .input_grande{
+        grid-column: span 1;
+    }
+
+    #contenedor_form button {
+        font-size: 0.8rem;
+        grid-column: span 1;
+    }
+
+    #contenedor_avisos{
+        padding: 0;
+    }
+
+    #contenedor_form{
+        margin:5px;
+    }
+
+    #contenedor_datos_informe {
+        padding:0;
+        height: 20vh;
+    }
+
+    #contenedor_informe h2{
+        font-size: 1rem;
+    }
+
+    /*diseño para los parrafos de los datos*/
+    #contenedor_datos_informe p{
+        font-size:0.5rem;
+    }
+
+    .datos_informe{
+        font-size: 0.6rem !important;
+    }
+
+    /*diseño texto adicional del informe(*) */
+    #info_adicional_informe{
+        font-size:0.5rem;
+    }
+}

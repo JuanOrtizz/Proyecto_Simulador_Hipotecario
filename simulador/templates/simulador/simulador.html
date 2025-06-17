@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Simulador | Finanzas Raiz{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'simulador/css/stylesFormSimulador.css' %}">
+{% endblock %}
+{% block content %}
+    <section id="contenedor_form_cards">
+        <div id="contenedor_form">
+            <h2>Completá el formulario para aplicar</h2>
+            <form method="POST" action="" id="formulario_simulador" novalidate>
+                {% csrf_token %}
+                {% for input in form %}
+                    {% if input.field.widget.attrs.class == "input_pequeño" %}
+                        <div class="contenedor_input input_pequeño">
+                            {{ input }}
+                            <span class="error_texto" id="error-{{ input.id_for_label }}"></span>
+                        </div>
+                    {% else %}
+                        <div class="contenedor_input input_grande">
+                            {{ input }}
+                            <span class="error_texto" id="error-{{ input.id_for_label }}"></span>
+                        {% if input.name == "ingresoBrutoMensual" or input.name == "valorPropiedad" or input.name == "ahorrosDisponibles" %}
+                            <span class="info_dolar" id="spanDolar{{ input.id_for_label|capfirst }}"></span>
+                        {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <button id="botonForm" type="submit">Simular</button>
+            </form>
+        </div>
+        <div id="contenedor_avisos">
+            <div id="card_requisitos">
+                <h3>Requisitos</h3>
+                <p>Tener la mayoría de edad (18 años)</p>
+                <hr>
+                <p>Tener una antigüedad laboral minima de 1 año para trabajadores en relación de dependencia y 2 años para trabajadores independientes</p>
+                <hr>
+                <p>Tener un ahorro minimo del 20% del valor del inmueble</p>
+            </div>
+            <div id="card_importante">
+                <h3>Importante</h3>
+                <p>El plazo máximo de financiamiento es 30 años</p>
+                <hr>
+                <p>El porcentaje máximo a retener siempre será el 30% del ingreso neto mensual</p>
+                <hr>
+                <p>La tasa de interés bancario, aplicada sobre el importe solicitado al banco, es del 6,5% mensual</p>
+            </div>
+        </div>
+    </section>
+    <section id="contenedor_informe">
+        <h2>Informe de Financiamiento</h2>
+        <div id="contenedor_datos_informe">
+            <div>
+                <p>01. Cliente</p>
+                <p id="informe_cliente" class="datos_informe"></p>
+            </div>
+            <div>
+                <p>02. Importe Solicitado</p>
+                <p id="informe_importe_solicitado" class="datos_informe"></p>
+            </div>
+            <div>
+                <p>03. Plazo</p>
+                <p id="informe_plazo" class="datos_informe"></p>
+            </div>
+            <div>
+                <p>04. Cuota Mensual</p>
+                <p id="informe_cuota_mensual" class="datos_informe"></p>
+            </div>
+        </div>
+        <p id="info_adicional_informe">*El importe solicitado importe incluye la tasa de interés bancario del 6.5% mensual</p>
+    </section>
+
+    <div id="pantalla_carga">
+        <p>Estamos procesando tu solicitud</p>
+        <div class="spinner-border text-light" role="status"></div>
+    </div>
+{% endblock %}
+{% block extra_js %}
+    <script type="module" src="{% static 'simulador/js/formSimulador.js' %}"></script>
+    <script src="{% static 'simulador/js/apiDolar.js' %}"></script>
+{% endblock %}
