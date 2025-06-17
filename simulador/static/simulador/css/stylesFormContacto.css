@@ -1,0 +1,213 @@
+/*diseño del section del formulario de contacto*/
+#section_contenedor_formulario{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 50px 0;
+    box-sizing: border-box;
+}
+
+/*diseño del formulario de contacto*/
+#section_contenedor_formulario form{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    height: auto;
+    width: 80%;
+    padding: 10px;
+    box-sizing:border-box;
+}
+
+/*diseño del titulo del formulario*/
+#section_contenedor_formulario h3{
+    width: 80%;
+    margin: 0;
+    text-align:center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--colorNegro);
+}
+
+/*diseño para los inputs del formulario*/
+.contenedor_input input{
+    width: 100%;
+    height:40px;
+}
+
+/*diseño para los errores en el span debajo del input*/
+.error_texto{
+    text-align: start;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--colorRojo);
+}
+
+/*diseño para errores en los input*/
+.input_error{
+    border: 2px solid var(--colorRojo) !important;
+}
+
+/*Diseño para los campos (input y textarea) del formulario*/
+#section_contenedor_formulario input,
+#section_contenedor_formulario textarea{
+    padding:8px;
+    border: 2px solid var(--colorGrisClaro);
+    box-sizing:border-box;
+    font-size: 0.8rem;
+}
+
+/*Diseño para los campos del formulario cuando tienen el foco*/
+#section_contenedor_formulario input:focus,
+#section_contenedor_formulario select:focus,
+#section_contenedor_formulario textarea:focus{
+    border: 2px solid var(--colorNegro);
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/*diseño del contenedor del textarea*/
+.contenedor_textarea{
+    width:100%;
+    grid-row: span 2;
+}
+
+/*diseño para el textarea*/
+.contenedor_textarea textarea{
+    width:100%;
+    resize: none;
+    overflow: auto;
+}
+
+/*diseño para agregarle un color al fondo del input cuando tenga texto*/
+#section_contenedor_formulario input:not(:placeholder-shown),
+#section_contenedor_formulario textarea:not(:placeholder-shown){
+  background-color: #E8F0FE;
+}
+
+/*diseño para agregarle un color al fondo del select cuando tenga una opcion valida*/
+.select_seleccionado{
+    background-color: #E8F0FE;
+}
+
+/*diseño del boton Enviar*/
+#boton_enviar_form{
+    max-height:40px;
+    padding:8px;
+    border: none;
+    box-sizing:border-box;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color:var(--colorGrisOscuro);
+    color: var(--colorBlanco);
+    transition: background-color 0.5s ease;
+    height:40px;
+    cursor:pointer;
+}
+
+/*diseño para el boton enviar hover*/
+#boton_enviar_form:hover{
+    background-color:var(--colorNegro);
+}
+
+/*diseño para la alerta para evitar que se suba el footer*/
+body.swal2-shown {
+  overflow: auto !important;
+  padding-right: 0 !important;
+}
+
+/*Mediasqueries*/
+/* pantallas de 1024 o menos px de ancho */
+@media (max-width: 1024px) {
+
+    /*diseño del titulo del formulario*/
+    #section_contenedor_formulario h3{
+        font-size: 1.4rem;
+        width:75%;
+    }
+
+    /*diseño para los errores en el span debajo del input*/
+    .error_texto{
+        font-size: 0.7rem;
+    }
+
+    /*Diseño para los campos (input y textarea) del formulario*/
+    #section_contenedor_formulario input,
+    #section_contenedor_formulario textarea{
+        font-size: 0.8rem;
+        padding:8px;
+    }
+
+    /*diseño del boton Enviar*/
+    #boton_enviar_form{
+        padding:8px;
+        font-size: 0.9rem;
+    }
+
+}
+
+/* pantallas de 768 o menos px de ancho */
+@media (max-width: 768px) {
+    /*diseño del section del formulario de contacto*/
+    #section_contenedor_formulario{
+        padding: 40px 0;
+    }
+
+    /*diseño del formulario de contacto*/
+    #section_contenedor_formulario form{
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+    /*diseño del titulo del formulario*/
+    #section_contenedor_formulario h3{
+        font-size: 1.2rem;
+    }
+
+    /*Diseño para los campos (input y textarea) del formulario*/
+    #section_contenedor_formulario input,
+    #section_contenedor_formulario textarea{
+        font-size: 0.7rem;
+    }
+
+    /*diseño del contenedor del textarea*/
+    .contenedor_textarea{
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /*diseño del boton Enviar*/
+    #boton_enviar_form{
+        grid-column: span 1;
+        font-size: 0.8rem;
+    }
+}
+
+/* pantallas de 480 o menos px de ancho */
+@media (max-width: 480px) {
+    /*diseño del section del formulario de contacto*/
+    #section_contenedor_formulario{
+        height: 100%;
+        padding: 30px 0;
+        justify-content:start;
+    }
+
+    /*diseño del titulo del formulario*/
+    #section_contenedor_formulario h3{
+        font-size: 1rem;
+    }
+
+    /*Diseño para los campos (input y textarea) del formulario*/
+    #section_contenedor_formulario input,
+    #section_contenedor_formulario textarea{
+        font-size: 0.6rem;
+    }
+
+    /*diseño del boton Enviar*/
+    #boton_enviar_form{
+        font-size: 0.7rem;
+    }
+}
