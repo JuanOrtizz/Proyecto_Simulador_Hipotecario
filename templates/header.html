@@ -1,0 +1,14 @@
+{% load static %}
+<header>
+    <nav>
+        <a href="{% url 'index' %}"><img id="imagen_nav" src="{% static 'img/logo.webp' %}"></a>
+        <button id="menu_hamburguesa" aria-label="Abrir menú">☰</button>
+        <ul id="lista_enlaces">
+            <li><a href="/">Conocenos</a></li>
+            <li><a href="/contacto/">Contacto</a></li>
+            <li id="boton_simular_credito"><a href="/simulador/">Simulá tu Credito</a></li>
+            <li><a href="/dashboard/">Dashboard</a>
+            </li>
+        </ul>
+    </nav>
+</header>
