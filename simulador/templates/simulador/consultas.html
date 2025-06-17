@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Panel Consultas | Finanzas Raiz  {% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'simulador/css/stylesPaneles.css' %}">
+{% endblock %}
+{% block content %}
+    <section class="section_contenedor_volver">
+        <div class="contenedor_volver">
+            <a class="enlace_volver" href="{% url 'dashboard' %}">Volver</a>
+        </div>
+    </section>
+    <section class="section_contenedor_panel">
+        <div class="contenedor_panel">
+            <h2>Panel de Consultas</h2>
+            <div class="contenedor_tabla">
+                <table>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Email</th>
+                        <th>Celular</th>
+                        <th>Mensaje</th>
+                        <th>Acciones</th>
+                    </tr>
+                    {% for consulta in consultas %}
+                    <tr id="consulta-{{ consulta.id }}">
+                        <td><div class="contenido_td">{{ consulta.nombre }}</div></td>
+                        <td><div class="contenido_td">{{ consulta.email}}</div></td>
+                        <td><div class="contenido_td">{{ consulta.celular }}</div></td>
+                        <td><div class="contenido_td">{{ consulta.mensaje }}</div></td>
+                        <td>
+                            <div class="contenedor_acciones">
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ consulta.email }}"
+                                  target="_blank" class="boton_contactar">
+                                    Contactar
+                                </a>
+                                <button class="boton_eliminar" data-id ="{{ consulta.id }}">
+                                    Eliminar
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block extra_js %}
+    <script type = module src="{% static 'simulador/js/eliminarConsulta.js' %}"></script>
+{% endblock %}
