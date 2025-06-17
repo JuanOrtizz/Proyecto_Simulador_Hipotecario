@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Dashboard | Finanzas Raiz {% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'simulador/css/stylesDashboard.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=logout" />
+{% endblock %}
+{% block content %}
+    <section id="section_contenedor_logout">
+        <div id="contenedor_logout">
+            <div id="relleno_div"></div>
+            <h1>Bienvenido {{ user.username }}</h1>
+            <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">
+                    <span class="material-symbols-outlined">
+                        logout
+                    </span>
+                </button>
+            </form>
+        </div>
+    </section>
+    <section id="section_contenedor_paneles">
+        <div class="contenedor_panel">
+            <a href="{% url 'solicitudes' %}">Observar Solicitudes</a>
+        </div>
+        <div class="contenedor_panel">
+            <a href="{% url 'consultas' %}">Observar Consultas</a>
+        </div>
+    </section>
+{% endblock %}
+{% block extra_js %}{% endblock %}

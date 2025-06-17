@@ -1,0 +1,177 @@
+/*diseño para el section del contenedor logout*/
+#section_contenedor_logout{
+    display:flex;
+    justify-content: center;
+    height:auto;
+    width:auto;
+    box-sizing:border-box;
+}
+
+/*diseño para el contenedor del logout*/
+#contenedor_logout{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap: 10px;
+    height: auto;
+    width: 100%;
+    padding:10px 30px;
+    box-sizing:border-box;
+    background-color: #B3B3B3;
+}
+
+/*diseño para el div vacio de relleno en el contenedor*/
+#relleno_div{
+    flex: 1;
+    height: 100%;
+}
+
+/*diseño del titulo de bienvenida en el contenedor logout*/
+#contenedor_logout h1{
+    flex: 1;
+    padding:0;
+    margin:0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align:center;
+}
+
+/*diseño del formulario donde se encuentra el boton para cerrar sesion*/
+#contenedor_logout form{
+    flex: 1;
+    display:flex;
+    justify-content:end;
+    align-items:center;
+    box-sizing:border-box;
+}
+
+/*diseño para el boton cerrar sesion*/
+#contenedor_logout button{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:5px;
+    border: none;
+    border-radius: 10px;
+    background-color:var(--colorRojo);
+    color:var(--colorBlanco);
+    font-size:1rem;
+    font-weight:700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/*diseño para el boton cerrar sesion con hover*/
+#contenedor_logout button:hover{
+    background-color: var(--colorRojoOscuro);
+}
+
+/*diseño para el logo de cerrar sesion */
+#contenedor_logout span{
+    font-size:1.5rem;
+}
+
+/*diseño para el section de categorias de datos del dashboard*/
+#section_contenedor_paneles{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    gap: 30px;
+    height:auto;
+    width:auto;
+    padding: 50px;
+    margin: 50px;
+    box-sizing:border-box;
+}
+
+/*Diseño para cada contenedor (Solicitudes y Consultas)*/
+.contenedor_panel{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    height:auto;
+    width:100%;
+}
+
+/*Diseño para cada <a> (enlace) para que tenga diseño como si fuera un boton*/
+.contenedor_panel a{
+    width:80%;
+    padding: 30px;
+    border-radius: 5px;
+    border: 2px solid var(--colorVerdeOscuro);
+    text-decoration: none;
+    text-align:center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--colorVerdeOscuro);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/*Diseño para cada <a> (enlace) en hover*/
+.contenedor_panel a:hover{
+    background-color: var(--colorVerdeOscuro);
+    color: var(--colorBlanco);
+}
+
+/*medias query*/
+@media (max-width: 1024px) {
+    /*diseño del titulo de bienvenida en el contenedor logout*/
+    #contenedor_logout h1{
+        font-size: 1.5rem;
+    }
+
+    /*diseño para el logo de cerrar sesion */
+    #contenedor_logout span{
+        font-size:1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /*diseño del titulo de bienvenida en el contenedor logout*/
+    #contenedor_logout h1{
+        font-size: 1.2rem;
+    }
+
+    /*diseño para el logo de cerrar sesion */
+    #contenedor_logout span{
+        font-size:1.1rem;
+    }
+
+    /*diseño para el section de categorias*/
+    #section_contenedor_paneles{
+        flex-direction: column;
+        padding: 30px;
+        margin: 30px;
+    }
+
+    /*Diseño para cada <a> (enlace) para que tenga diseño como si fuera un boton*/
+    .contenedor_panel a{
+        width:90%;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /*diseño del titulo de bienvenida en el contenedor logout*/
+    #contenedor_logout h1{
+        font-size: 1rem;
+    }
+
+    /*diseño para el logo de cerrar sesion */
+    #contenedor_logout span{
+        font-size: 0.9rem;
+    }
+
+    /*diseño para el section de categorias de datos del dashboard*/
+    #section_contenedor_paneles{
+        padding: 20px;
+        margin: 20px;
+    }
+
+    /*Diseño para cada <a> (enlace) para que tenga diseño como si fuera un boton*/
+    .contenedor_panel a{
+        width:100%;
+        font-size: 0.7rem;
+        padding: 20px;
+    }
+}
