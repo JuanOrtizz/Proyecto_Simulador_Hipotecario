@@ -1,0 +1,260 @@
+/*diseño para el section de volver*/
+.section_contenedor_volver{
+    display:flex;
+    justify-content: center;
+    height:auto;
+    width:auto;
+    padding-bottom: 50px ;
+    box-sizing:border-box;
+}
+
+/*diseño para el contenedor de volver*/
+.contenedor_volver{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height: auto;
+    width: 100%;
+    padding:10px 20px;
+    box-sizing:border-box;
+    gap: 10px;
+    background-color: #B3B3B3;
+}
+
+/*diseño para el <a> (enlace) volver*/
+.enlace_volver{
+    width:auto;
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-sizing:border-box;
+    background-color: var(--colorGrisOscuro);
+    text-decoration:none;
+    color:var(--colorBlanco);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/*diseño para el <a> (enlace) volver hover*/
+.enlace_volver:hover{
+    background-color: var(--colorGrisClaro);
+    color:var(--colorNegro);
+}
+
+/* diseño para el section de solicitudes */
+.section_contenedor_panel {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding: 50px;
+    padding-top: 0;
+    box-sizing: border-box;
+}
+
+/* contenedor para el panel */
+.contenedor_panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    gap: 10px;
+    border-radius: 10px;
+    background-color: #E6E6E6;
+}
+
+/* titulo de las solicitudes */
+.contenedor_panel h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+/* diseño del contenedor de la tabla */
+.contenedor_tabla {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+/* diseño de la tabla */
+.contenedor_tabla table {
+    table-layout: fixed;
+    min-width: 900px; /* fuerza  un scroll horizontal en pantallas pequeñas */
+    width: 100%;
+    border: 2px solid var(--colorNegro);
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* diseño para los titulos y los campos de la tabla */
+.contenedor_panel th,
+.contenedor_panel td {
+    font-size: 0.8rem;
+    border: 1px solid var(--colorGrisClaro);
+    padding: 8px;
+    text-align: center;
+}
+
+/*diseño para los titulos de la tabla*/
+.contenedor_panel th {
+    background-color: var(--colorVerdeClaro);
+    color: var(--colorNegro);
+}
+
+/*diseño para los campos de la tabla*/
+.contenedor_panel td {
+    background-color: var(--colorBlanco);
+}
+
+/*diseño para el contenedor dentro de cada campo. Permite un scroll si los campos tienen mucho contenido*/
+.contenido_td {
+    max-height: 100px;
+    overflow-y: auto;
+    word-break: break-word;
+    white-space: normal;
+}
+
+/*diseño para la seccion de acciones*/
+.contenedor_tabla table th:last-child,
+.contenedor_tabla table td:last-child {
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
+}
+
+/* diseño para el contenedor de acciones */
+.contenedor_acciones {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    box-sizing:border-box;
+}
+
+/* diseño para los botones Contactar (en Consultas) y Modificar (en Solicitudes)*/
+.boton_contactar,
+.boton_modificar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    border:none;
+    text-decoration: none;
+    color: var(--colorNegro);
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+/*diseño para el boton contactar*/
+.boton_contactar {
+    background-color: var(--colorCeleste);
+}
+
+/*diseño para el boton modificar*/
+.boton_modificar {
+    background-color: var(--colorAmarillo);
+}
+
+/*diseño para el boton eliminar*/
+.boton_eliminar {
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--colorRojo);
+    color: var(--colorBlanco);
+    font-weight: 600;
+    transition: background-color 0.3s;
+    cursor:pointer;
+}
+
+/*diseño para el boton contactar hover*/
+.boton_contactar:hover {
+    background-color: var(--colorCelesteOscuro);
+}
+
+/*diseño para el boton modificar hover*/
+.boton_modificar:hover {
+    background-color: var(--colorAmarilloOscuro);
+}
+
+/*diseño para el boton eliminar hover*/
+.boton_eliminar:hover {
+    background-color: var(--colorRojoOscuro);
+}
+
+/*medias query*/
+@media (max-width: 1024px) {
+    /* diseño para el section de solicitudes */
+    .section_contenedor_panel {
+        padding: 40px;
+    }
+
+    /* titulo de las solicitudes */
+    .contenedor_panel h2 {
+        font-size: 1.3rem;
+    }
+
+    /* diseño para los botones Contactar (en Consultas) y Modificar (en Solicitudes) y Eliminar*/
+    .boton_contactar,
+    .boton_modificar,
+    .boton_eliminar {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* diseño para el section de solicitudes */
+    .section_contenedor_panel {
+        padding: 30px;
+    }
+
+    /* titulo de las solicitudes */
+    .contenedor_panel h2 {
+        font-size: 1.2rem;
+    }
+
+    /* diseño para los botones Contactar (en Consultas) y Modificar (en Solicitudes) y Eliminar*/
+    .boton_modificar,
+    .boton_contactar,
+    .boton_eliminar {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .enlace_volver{
+        font-size: 0.8rem;
+    }
+
+    .section_contenedor_volver {
+        padding-bottom: 20px;
+    }
+
+    /* diseño para el section de solicitudes */
+    .section_contenedor_panel {
+        padding: 20px;
+    }
+
+    /* contenedor para el panel */
+    .contenedor_panel {
+        padding: 5px;
+    }
+
+    /* titulo de las solicitudes */
+    .contenedor_panel h2 {
+        font-size: 1rem;
+    }
+
+}
