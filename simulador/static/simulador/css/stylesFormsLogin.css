@@ -1,0 +1,255 @@
+/*diseño para el section del contenedor del registro*/
+.contenedor_login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 10px;
+    margin: 40px;
+    box-sizing: border-box;
+}
+
+/*diseño para el contenedor del registro*/
+.contenedor_form_login{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 13px;
+    background-color: #D3D3D3;
+}
+
+/*diseño para el titulo del registro*/
+.contenedor_form_login h2{
+    margin:0;
+    padding:0;
+    padding-bottom: 12px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/*diseño para el formulario de registro*/
+.form_login{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    flex-direction:column ;
+    gap: 10px;
+}
+
+/*diseño para el contenedor del input*/
+.contenedor_field{
+    height:auto;
+    width:100%;
+}
+
+/*diseño para los labels del form*/
+.contenedor_field label {
+    display: block;
+    font-weight: 600;
+}
+
+/*diseño para los input del form*/
+.contenedor_field input {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--colorGrisOscuro);
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: border 0.3s ease;
+}
+
+/*diseño para los input del form hover*/
+.contenedor_field input:focus {
+    border-color: var(--colorVerdeClaro);
+    outline: none;
+}
+
+/*diseño para los span con los textos de ayuda debajo de los input (Usuario, Confirmar Contraseña)*/
+.contenedor_field span {
+    display: block;
+    padding: 10px 5px;
+    font-weight: 600;
+    font-size:0.8rem;
+    color: var(--colorGrisOscuro);
+}
+
+/*diseño para la lista de ayuda debajo del input (Contraseña)*/
+.form_login ul {
+    margin: 0;
+    padding: 0;
+    list-style: disc inside;
+    font-size: 0.8rem;
+    color: var(--colorGrisOscuro);
+}
+
+/*diseño para el boton del registro*/
+.contenedor_form_login button{
+    align-self: center;
+    height: auto;
+    width:100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color:var(--colorBlanco);
+    background-color: var(--colorVerde);
+    cursor:pointer;
+    transition: background-color 0.3s;
+}
+
+/*diseño para el boton del registro hover*/
+.contenedor_form_login button:hover{
+    background-color: var(--colorVerdeOscuro);
+}
+
+/*diseño para el contenedor para iniciar sesion*/
+.contenedor_texto_bottom{
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    box-sizing:border-box;
+}
+
+/*diseño para el parrafo de ya tenes cuenta?*/
+.contenedor_texto_bottom p{
+    margin: 0;
+    color: var(--colorNegro) !important;
+    font-size: 0.9rem;
+}
+
+/*diseño para el enlace que redirecciona a iniciar sesion*/
+.contenedor_texto_bottom a{
+    margin: 0;
+    color: #0000EE;
+    font-size: 0.9rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/*diseño para errores de registro*/
+.errorlist li{
+    padding: 10px 0;
+    color: var(--colorRojo);
+    list-style: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/*Medias queries*/
+@media (max-width: 1024px) {
+    .contenedor_login{
+        margin:20px;
+    }
+
+    /*diseño para el titulo del registro*/
+    .contenedor_form_login h2{
+        font-size: 1.6rem;
+    }
+
+    /*diseño para los labels del form*/
+    .contenedor_field label {
+        font-size: 1rem;
+    }
+
+    /*diseño para los input del form*/
+    .contenedor_field input {
+        font-size: 0.8rem;
+    }
+
+    /*diseño para los span con los textos de ayuda debajo de los input (Usuario, Confirmar Contraseña)*/
+    .contenedor_field span {
+        font-size:0.7rem;
+    }
+
+    /*diseño para la lista de ayuda debajo del input (Contraseña)*/
+    .form_login ul {
+        font-size: 0.7rem;
+    }
+
+    /*diseño para el boton del registro*/
+    .contenedor_form_login button{
+        font-size: 0.8rem;
+    }
+
+    /*diseño para el parrafo de ya tenes cuenta?*/
+    .contenedor_texto_bottom p{
+        font-size: 0.8rem;
+
+    }
+
+    /*diseño para el enlace que redirecciona a iniciar sesion*/
+    .contenedor_texto_bottom a{
+        font-size: 0.8rem;
+    }
+
+    /*diseño para errores de registro*/
+    .errorlist li{
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 768px){
+    /*diseño para el titulo del registro*/
+    .contenedor_form_login h2{
+        font-size: 1.5rem;
+    }
+
+    /*diseño para los labels del form*/
+    .contenedor_field label {
+        font-size: 0.9rem;
+    }
+
+    /*diseño para los input del form*/
+    .contenedor_field input {
+        font-size: 0.8rem;
+    }
+
+    /*diseño para el parrafo de ya tenes cuenta?*/
+    .contenedor_texto_bottom p{
+        font-size: 0.7rem;
+    }
+
+    /*diseño para el enlace que redirecciona a iniciar sesion*/
+    .contenedor_texto_bottom a{
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px){
+    /*diseño para el titulo del registro*/
+    .contenedor_form_login h2{
+        font-size: 1.3rem;
+    }
+
+    /*diseño para los labels del form*/
+    .contenedor_field label {
+        font-size: 0.8rem;
+    }
+
+    /*diseño para los input del form*/
+    .contenedor_field input {
+        font-size: 0.7rem;
+    }
+
+    /*diseño para el parrafo de ya tenes cuenta?*/
+    .contenedor_texto_bottom p{
+        font-size: 0.6rem;
+    }
+
+    /*diseño para el enlace que redirecciona a iniciar sesion*/
+    .contenedor_texto_bottom a{
+        font-size: 0.6rem;
+    }
+}
