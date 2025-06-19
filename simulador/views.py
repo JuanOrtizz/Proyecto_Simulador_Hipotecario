@@ -1,7 +1,6 @@
 from django.conf import settings
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
-from pyexpat.errors import messages
 from rest_framework.permissions import IsAuthenticated
 from .forms import SolicitudCreditoForm, ContactoForm
 from .models import Solicitudes, Consultas
