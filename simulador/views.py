@@ -4,10 +4,10 @@ from django.http import JsonResponse
 from rest_framework.permissions import IsAuthenticated
 from .forms import SolicitudCreditoForm, ContactoForm
 from .models import Solicitudes, Consultas
-from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 from rest_framework import viewsets
 from .serializers import SolicitudesSerializer, ConsultasSerializer
+from .services.email_service import enviar_email
 
 #Vista para index(pagina principal)
 def pagina_index(request):
@@ -129,8 +129,9 @@ def pagina_simulador(request):
                     </html>
                     """
                     destinatario = email
+
                     #envio el mail
-                    send_mail(asunto, mensaje, settings.EMAIL_HOST_USER, [destinatario], fail_silently=False, html_message=cuerpoMensajeHtml )
+                    enviar_email(destinatario, asunto, cuerpoMensajeHtml)
 
                 except Exception as e:
                     return JsonResponse({"success": False, "errors": f"Error al enviar correo: {e}"})
@@ -167,6 +168,55 @@ def pagina_contacto(request):
                 mensaje = mensaje
             )
             consultas.save()
+
+            #declaro variables para enviar mail
+            asunto = f"Consulta de {nombre}. Finanzas Raiz"
+            destinatario = email
+            html = """<html>
+                          <body style="margin:0; padding:0; background-color:#f4f6f5; font-family: Arial, Helvetica, sans-serif;">
+                        
+                            <div style="max-width:600px; margin:40px auto; background:#ffffff; border-radius:10px; overflow:hidden; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        
+                              <div style="background:#526522; padding:25px; text-align:center;">
+                                <h1 style="color:white; margin:0; font-size:22px;">
+                                  Finanzas Raíz
+                                </h1>
+                              </div>
+                        
+                              <div style="padding:35px; text-align:center;">
+                        
+                                <h2 style="color:#033500; margin-bottom:15px;">
+                                  ¡Consulta recibida!
+                                </h2>
+                        
+                                <p style="color:#444; font-size:15px; line-height:1.6;">
+                                  Gracias por comunicarte con nosotros.
+                                </p>
+                        
+                                <p style="color:#444; font-size:15px; line-height:1.6;">
+                                  Recibimos tu consulta correctamente y nuestro equipo
+                                  se pondrá en contacto contigo a la brevedad.
+                                </p>
+                        
+                                <div style="margin-top:25px; padding:15px; background:#A1CEBD; border-radius:6px;">
+                                  <p style="margin:0; color:#033500; font-weight:bold;">
+                                    Estamos aquí para ayudarte a tomar las mejores decisiones financieras.
+                                  </p>
+                                </div>
+                        
+                              </div>
+                        
+                              <div style="background:#f1f1f1; padding:18px; text-align:center; font-size:12px; color:#666;">
+                                © Finanzas Raíz · Todos los derechos reservados
+                              </div>
+                        
+                            </div>
+                        
+                          </body>
+                        </html>"""
+
+            #envio el mail
+            enviar_email(destinatario, asunto, html)
 
             return JsonResponse({"success": True,
                                  "message": f"Recibimos tu mensaje y te estaremos contactando al email {email}"})
